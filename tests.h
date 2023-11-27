@@ -19,21 +19,46 @@ typedef struct Arc{
 typedef struct Sommet{
     t_arc * arc;
     int nom;
-    int position;
+
     char couleur;
     int distance;
     int predecesseur;
 }t_sommet;
 
+
 typedef struct graphe{
     int ordre;
     int taille;
+    int max;
     int orientation;
+    int *position;
+    bool *source;
     t_sommet **sommet;
 }t_graphe;
 
-typedef struct arete{
-    int sommet1,sommet2;
-    int poids;
-}t_arete;
+typedef struct valeur{
+    int nom;
+    struct valeur *suivant;
+}t_valeur;
+
+typedef struct valnom{
+    float valeur;
+    int nom;
+}t_valnom;
+
+typedef struct temps{
+    t_valnom *valnom;
+    int taille
+}t_temps;
+
+typedef struct machines {
+    t_valeur *nom;
+    struct boites *suivant;
+}t_machines;
+
+typedef struct file{
+    int nombre;
+    struct file *suivant;
+}File;
+
 #endif //OPTIMISATION_D_UNE_LIGNE_D_ASSEMBLAGE_ING2_TD1_EQUIPE4_TESTS_H
