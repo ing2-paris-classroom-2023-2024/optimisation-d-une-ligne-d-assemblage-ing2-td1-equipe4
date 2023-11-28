@@ -137,8 +137,10 @@ int main() {
     printf("\nl'operation a marccher avec succes il faut %d machine pour cette usine\n",nummf);
 
 //execution + temps 
-    
-
+    //aplication de prime avec optimisation des ligne de suivie 
+// aucasionemment 
+    //file de priorite ordonance pause 
+    //pethonde de 011
 
 
 
