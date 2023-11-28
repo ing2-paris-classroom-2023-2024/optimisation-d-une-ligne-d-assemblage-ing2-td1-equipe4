@@ -136,7 +136,8 @@ int main() {
 
     printf("\nl'operation a marccher avec succes il faut %d machine pour cette usine\n",nummf);
 
-
+//execution + temps 
+    
 
 
 
