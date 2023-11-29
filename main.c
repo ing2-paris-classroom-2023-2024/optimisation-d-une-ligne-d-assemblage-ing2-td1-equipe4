@@ -143,6 +143,16 @@ int main() {
     //pethonde de 011
 
 
+    t_graphe lecture (charfile){
+    t_graphe graphe = malloc (sizeof (t_graphe ));
+    FILEfichier = fopen(file,"r");
+    if (!fichier)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+    int orientation;
+    int ordre;
 
 
     return 0;
