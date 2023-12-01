@@ -16,7 +16,6 @@ t_graphe lecture (charfile){
     int orientation;
     int ordre;
 
-
     int sommet[50][2];
     int h = 0;
     char actuel;
