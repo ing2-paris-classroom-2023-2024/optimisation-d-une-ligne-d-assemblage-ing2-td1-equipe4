@@ -1,65 +1,9 @@
-//
-// Created by Nathan Gaulle on 13/11/2023.
-//
-
-#include "main.h"
-
-
-t_graphe lecture (charfile){
-    t_graphe graphe = malloc (sizeof (t_graphe ));
-    FILEfichier = fopen(file,"r");
-    if (!fichier)
-    {
-        printf("Erreur de lecture fichier\n");
-        exit(-1);
-    }
-    int orientation;
-    int ordre;
-
-    int sommet[50][2];
-    int h = 0;
-    char actuel;
-    while (actuel != EOF){
-        actuel = fgetc(fichier);
-        if (actuel >= '0' && actuel<= '9') {
-            fseek(fichier, -1,SEEK_CUR);
-            fscanf(fichier, "%d %d", &sommet[h][0],&sommet[h][1]);
-            h++;
-        }
-    }
-    ordre = h;
-    
-    for (int i =0;i<ordre;i++){
-        printf("\n%d %d",sommet[i][0],sommet[i][1]);
-    }
-return graphe
-}
-#include <stdio.h>
-typedef struct sommets {
-    int nom;
-    int exclusions[10]; //-1 si pas dexclusion
-    int temps ;
-    int placee ;
-    int nexclusion;
-}_som;
-
-typedef struct machine{
-    _som sommets[20];
-    int temps ;
-    int vide ;//0=oui 1=non
-    int nbsommets;
-
-}_machine;
-void recup() {
-
-}
-
 #include <stdio.h>
 #include <stdlib.h>
 
 
+
 typedef struct sommets {
-    char vrainom[20];
     int nom;
     struct sommets* exclusions[10]; //-1 si pas dexclusion
     float temps ;
@@ -77,20 +21,123 @@ typedef struct machine{
     int nbsommets;
 
 }_machine;
-void recup() {
+void recup(char* nomfile,int h ,int ex,_som* tab){
+    int exclu1=0,exclu2=0;
+    _som sommet;
+        FILE*fichier2 = fopen(nomfile,"r");
+        if (!fichier2)
+        {
+            printf("Erreur de lecture fichier\n");
+            exit(-1);
+        }
+        rewind(fichier2);
+    sommet.placee=0;
+    sommet.pretprptrecedance=0;
+    for (int j = 0; j < 10; ++j) {
+        sommet.precedant[j]=NULL;
+        sommet.exclusions[j]=NULL;
+    }
+
+
+    for (int i = 0; i <h ; ++i){
+
+            fscanf(fichier2, "%d %f", &sommet.nom,&sommet.temps);
+            tab[i]=sommet;
+
+    }
+    fclose(fichier2);
+    fichier2 = fopen("exclusions.txt","r");
+    if (!fichier2)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+    rewind(fichier2);
+    for (int i = 0; i <ex ; ++i){
+
+        fscanf(fichier2, "%d %d", &exclu1,&exclu2);
+        for (int j = 0; j < h; ++j) {
+            if(tab[j].nom==exclu1){
+                tab[j].exclusions[tab[j].nexclusion] = &sommet;
+                tab[j].exclusions[tab[j].nexclusion]->nom=exclu2;
+                tab[j].nexclusion+=1;
+                printf(" %d", tab[j].exclusions[tab[j].nexclusion-1]->nom);
+            }
+            if(tab[j].nom==exclu2){
+                tab[j].exclusions[tab[j].nexclusion] = &sommet;
+                tab[j].exclusions[tab[j].nexclusion]->nom=exclu1;
+                tab[j].nexclusion+=1;
+
+            }
+        }
+
+    }
+
+    fclose(fichier2);
+
+
+
 
 }
 
 int main() {
-    int nombresommets=1,nbexclu=0,numm=0,pasdexclu ,nummf,numtabvalide=0,fin=0,nmachine=0;//nombresommets=0!!!!
+    int nombresommets=0,nbexclu=0,numm=0,pasdexclu ,nummf,numtabvalide=0,fin=0,nmachine=0 ,actuel=0,nexclu=0,nprece=0;//nombresommets=0!!!!
     _som sommet;
     float tempsmax=0;
 
-    recup();
-    // int tab[nombresommets][nombresommets];
-    //_som tabvalide[nombresommets],tabnexclu[nombresommets];
+    FILE*fichier = fopen("operations.txt","r");
+    if (!fichier)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+    while (actuel != EOF){
+        actuel = fgetc(fichier);
+        if (actuel >= '0' && actuel<= '9') {
+            fseek(fichier, -1,SEEK_CUR);
+            fscanf(fichier, "%d %f", &sommet.nom,&sommet.temps);
+            nombresommets++;
+        }
+    }
+    printf("%d",nombresommets);
+    fclose(fichier);
+    fichier = fopen("temps_cycle.txt","r");
+    if (!fichier)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+    fscanf(fichier,"%f",&tempsmax);
+    fclose(fichier);
+    actuel=0;
+    printf("\n%f",tempsmax);
+    fichier = fopen("exclusions.txt","r");
+    if (!fichier)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+    while (actuel != EOF){
+        actuel = fgetc(fichier);
+        if (actuel >= '0' && actuel<= '9') {
+            fseek(fichier, -1,SEEK_CUR);
+            fscanf(fichier, "%d %f", &sommet.nom,&sommet.temps);
+            nexclu++;
+        }
+    }
+    printf("\n%d", nexclu);
+    fclose(fichier);
+
     _som tab[nombresommets],tabexclusion[nombresommets];
     _machine tabm[nombresommets];
+
+    recup("operations.txt",nombresommets,nexclu,tab);
+    for (int i = 0 ;i< nombresommets ;i++){
+        printf("\n %d %f",tab[i].nom,tab[i].temps);
+    }
+    // int tab[nombresommets][nombresommets];
+    //_som tabvalide[nombresommets],tabnexclu[nombresommets];
+
 
 
     while (fin==0) {
@@ -198,7 +245,7 @@ int main() {
     while (tabm[nmachine].vide==1){
         printf("machine N %d :\n possede les %d sommets suivant :\n",nmachine,tabm[nmachine].nbsommets);
         for (int i = 0; i < tabm[nmachine].nbsommets; ++i) {
-            printf("sommets : %s  \n",tabm[nmachine].sommets[i].vrainom);
+            printf("sommets : %d  \n",tabm[nmachine].sommets[i].nom);
         }
         printf("temp total sur temp max de la machine : %f sur %f \n",tabm[nmachine].temps,tempsmax);
     }
