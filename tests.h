@@ -69,6 +69,6 @@ typedef struct file{
     t_elem *premier;
 }File;
 
-
+void precedance_temps ();
 
 #endif //OPTIMISATION_D_UNE_LIGNE_D_ASSEMBLAGE_ING2_TD1_EQUIPE4_TESTS_H
