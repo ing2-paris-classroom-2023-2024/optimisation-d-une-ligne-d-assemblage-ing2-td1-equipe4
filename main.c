@@ -80,6 +80,22 @@ void recup(char* nomfile,int h ,int ex,_som* tab){
 
 }
 
+void interface(){
+    int prog=0;
+    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence");
+    scanf("%d", &prog);
+    if (prog==1){
+        //programme numéro 1
+    }
+    else if (prog==2){
+        //programme numéro 2
+    }
+    else {
+        //programme numéro 3
+    }
+
+}
+
 int main() {
     int nombresommets=0,nbexclu=0,numm=0,pasdexclu ,nummf,numtabvalide=0,fin=0,nmachine=0 ,actuel=0,nexclu=0,nprece=0;//nombresommets=0!!!!
     _som sommet;
@@ -240,7 +256,7 @@ int main() {
         }
     }
 */
-    printf("\nl'operation a marccher avec succes il faut %d machine pour cette usine tel que on a :\n",nummf);
+    printf("\nl'operation a marcher avec succes il faut %d machine pour cette usine tel que on a :\n",nummf);
 
     while (tabm[nmachine].vide==1){
         printf("machine N %d :\n possede les %d sommets suivant :\n",nmachine,tabm[nmachine].nbsommets);
@@ -254,12 +270,6 @@ int main() {
             nmachine+=1;
         }
     }
-
-
-
-
-
-
 
     return 0;
 }
