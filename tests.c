@@ -453,7 +453,7 @@ void un_et_deux (t_graphe *graphe){
     }
 }
 
-int main() {
+/*int main() {
     char nom[20] = {"precedences.txt"};
     char nom2[20] = {"exclusions.txt"};
     char nom3[20] = {"operations.txt"};
@@ -464,4 +464,15 @@ int main() {
     assimilation(graphe,temps,nom4);
     un_et_deux(graphe);
     return 0;
+}*/
+
+
+void precedance_temps (){
+    char nom[20] = {"precedences.txt"};
+    char nom3[20] = {"operations.txt"};
+    char nom4[20] = {"temps_cycle.txt"};
+    t_graphe *graphe= lecture(nom);
+    t_temps *temps = lecture_temps(nom3);
+    assimilation(graphe,temps,nom4);
+    un_et_deux(graphe);
 }
