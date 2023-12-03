@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "main.h"
+#include "tests.h"
+#include "exclusion.h"
 
 typedef struct sommets {
     int nom;
