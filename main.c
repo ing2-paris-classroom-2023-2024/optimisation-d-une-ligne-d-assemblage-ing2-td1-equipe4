@@ -5,11 +5,11 @@
 
 typedef struct sommets {
     int nom;
-    struct sommets* exclusions[10]; //-1 si pas dexclusion
+    int exclusions[10]; //-1 si pas dexclusion
     float temps ;
     int placee ;//1=oui 0=nn
     int nexclusion;
-    struct sommets* precedant[10];
+    int precedant[10];
     int nprecedant;
     int pretprptrecedance;// initialise a 0
 }_som;
