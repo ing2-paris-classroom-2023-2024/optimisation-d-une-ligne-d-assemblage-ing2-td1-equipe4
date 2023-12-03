@@ -6,18 +6,18 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-struct Arc{
+struct eArc{
     int sommet;
-    struct Arc* arc_suivant;
+    struct eArc* arc_suivant;
 };
 
-typedef struct Arc* pArc;
+typedef struct eArc* pArc;
 
-struct Sommet{
-    struct Arc* arc;
+struct eSommet{
+    struct eArc* arc;
 };
 
-typedef struct Sommet* pSommet;
+typedef struct eSommet* pSommet;
 
 typedef struct tableau_fichier{
     int** tableau;
