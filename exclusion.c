@@ -158,7 +158,7 @@ int contrainte_exclusion(graphe* g){
     return nbr_machine;
 }
 
-void main_exclusion_simple() {
+void exclusion() {
     graphe* g;
     int station;
     g = creation_graphe(g);
