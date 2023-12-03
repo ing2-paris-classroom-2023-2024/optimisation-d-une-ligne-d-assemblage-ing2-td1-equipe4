@@ -140,7 +140,7 @@ void rayan(){
     }
     fclose(fichier2);
     printf("\n");
-    fichier2 = fopen("precedance.txt","r");
+    fichier2 = fopen("precedences.txt","r");
     if (!fichier2)
     {
         printf("Erreur de lecture fichier\n");
