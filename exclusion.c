@@ -96,10 +96,8 @@ int trouver_ordre(int ** tableau,int taille){
 }
 
 graphe* creation_graphe(graphe* g){
-    char fichier_exclusion[50];
+    char fichier_exclusion[50]={"exclusions.txt"};
     int taille,ordre;
-    printf("\n Nom du fichier exclusion :");
-    scanf("%s",fichier_exclusion);
     tf* tf1=malloc(sizeof(tf));
     taille = lecture_fichier_exlusion(tf1,fichier_exclusion);
     ordre = trouver_ordre(tf1->tableau,taille)+1;
