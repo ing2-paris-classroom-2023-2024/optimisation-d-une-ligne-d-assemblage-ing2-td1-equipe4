@@ -271,7 +271,7 @@ void rayan(){
 int main() {
     int prog=0;
     do{
-    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence\n3.Precedence+exclusion+Temps de cycle");
+    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de precedence\n3.Precedence + Exclusion + Temps de cycle");
     scanf("%d", &prog);
     if (prog==1){
         exclusion();
