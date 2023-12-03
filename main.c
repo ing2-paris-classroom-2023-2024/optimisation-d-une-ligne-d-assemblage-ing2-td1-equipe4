@@ -41,7 +41,6 @@ void rayan(){
             nombresommets++;
         }
     }
-    printf("%d",nombresommets);
     fclose(fichier);
     fichier = fopen("temps_cycle.txt","r");
     if (!fichier)
@@ -52,7 +51,6 @@ void rayan(){
     fscanf(fichier,"%f",&tempsmax);
     fclose(fichier);
     actuel=0;
-    printf("\n%f",tempsmax);
     fichier = fopen("exclusions.txt","r");
     if (!fichier)
     {
@@ -67,7 +65,6 @@ void rayan(){
             nexclu++;
         }
     }
-    printf("\n%d", nexclu);
     fclose(fichier);
     actuel=0;
     fichier = fopen("precedance.txt","r");
@@ -84,7 +81,6 @@ void rayan(){
             nprece++;
         }
     }
-    printf("\n%d", nprece);
     fclose(fichier);
 
     _som tab[nombresommets],tabexclusion[nombresommets];
@@ -132,7 +128,6 @@ void rayan(){
             if(tab[j].nom==exclu1){
                 tab[j].exclusions[tab[j].nexclusion]=exclu2;
                 tab[j].nexclusion+=1;
-                printf(" %d", tab[j].exclusions[tab[j].nexclusion-1]);
             }
             if(tab[j].nom==exclu2){
                 tab[j].exclusions[tab[j].nexclusion]=exclu1;
@@ -158,7 +153,6 @@ void rayan(){
             if(tab[j].nom==exclu2){
                 tab[j].precedant[tab[j].nprecedant]=exclu1;
                 tab[j].nprecedant+=1;
-                printf(" %d", tab[j].precedant[tab[j].nprecedant-1]);
             }
         }
 
@@ -167,7 +161,6 @@ void rayan(){
 
 
     for (int i = 0 ;i< nombresommets ;i++){
-        printf("\n %d %f",tab[i].nom,tab[i].temps);
     }
 
     while (fin==0) {
@@ -238,7 +231,6 @@ void rayan(){
                         tab[i].placee=1;
                     }
                 }
-                printf("\n%d",tabexclusion[0].nom);
             } else {
                 if (numm < nombresommets) {
                     numm += 1;
