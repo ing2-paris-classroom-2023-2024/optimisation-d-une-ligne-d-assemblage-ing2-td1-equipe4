@@ -45,7 +45,7 @@ int lecture_fichier_exlusion(tf* tf1,char *nom_fichier){
 
 pSommet* CreerArete(pSommet* sommet,int s1,int s2){
     if(sommet[s1]->arc==NULL){
-        pArc Newarc=(pArc)malloc(sizeof(struct Arc));
+        pArc Newarc=(pArc)malloc(sizeof(struct eArc));
         Newarc->sommet=s2;
         Newarc->arc_suivant=NULL;
         sommet[s1]->arc=Newarc;
@@ -56,7 +56,7 @@ pSommet* CreerArete(pSommet* sommet,int s1,int s2){
         while(temp->arc_suivant!=NULL){
             temp=temp->arc_suivant;
         }
-        pArc Newarc=(pArc)malloc(sizeof(struct Arc));
+        pArc Newarc=(pArc)malloc(sizeof(struct eArc));
         Newarc->sommet=s2;
         Newarc->arc_suivant=NULL;
         if(temp->sommet>s2){
@@ -76,7 +76,7 @@ graphe* CreerGraphe(int ordre){
     Newgraphe->pSommet = (pSommet*)malloc(ordre*sizeof(pSommet));
     Newgraphe->pstation = (pstation*)malloc(ordre*sizeof(pstation));
     for(int i=0; i<ordre; i++){
-        Newgraphe->pSommet[i]=(pSommet)malloc(sizeof(struct Sommet));
+        Newgraphe->pSommet[i]=(pSommet)malloc(sizeof(struct eSommet));
         Newgraphe->pstation[i]=(pstation)malloc(sizeof(struct station));
         Newgraphe->pSommet[i]->arc=NULL;
     }
