@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int lecture_fichier_exlusion(tf* tf1,char *nom_fichier){
     FILE* fichier = fopen(nom_fichier,"r");
     if (!fichier){
