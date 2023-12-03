@@ -267,11 +267,6 @@ void rayan(){
 
 }
 
-
-void interface(){
-  
-}
-
 int main() {
     int prog=0;
     do{
