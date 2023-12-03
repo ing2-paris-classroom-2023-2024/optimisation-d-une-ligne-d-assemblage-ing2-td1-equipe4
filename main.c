@@ -82,7 +82,7 @@ void recup(char* nomfile,int h ,int ex,_som* tab){
 
 void interface(){
     int prog=0;
-    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence");
+    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence\n3.Precedence+exclusion+Temps de cycle");
     scanf("%d", &prog);
     if (prog==1){
         //programme numéro 1
