@@ -281,7 +281,8 @@ void interface(){
 }
 
 int main() {
-     int prog=0;
+    int prog=0;
+    do{
     printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence\n3.Precedence+exclusion+Temps de cycle");
     scanf("%d", &prog);
     if (prog==1){
@@ -292,6 +293,6 @@ int main() {
     }
     else {
         rayan()
-    }
+    }}while((prog!=1)||(prog!=2)||(prog!=3));
     return 0 ;
 }
