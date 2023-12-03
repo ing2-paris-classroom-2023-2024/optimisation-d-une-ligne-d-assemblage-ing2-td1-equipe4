@@ -269,18 +269,18 @@ void rayan(){
 }
 
 int main() {
-    int prog=0;
+    char prog=0;
     do{
-    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de precedence\n3.Precedence + Exclusion + Temps de cycle\n");
-    scanf("%d", &prog);
-    if (prog==1){
+    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de precedence\n3.Precedence + Exclusion + Temps de cycle\nPour sortir : s\n");
+    scanf("%c", &prog);
+    if (prog=='1'){
         exclusion();
     }
-    else if (prog==2){
+    else if (prog=='2'){
         precedance_temps();
     }
-    else if (prog==3){
+    else if (prog=='3'){
         rayan();
-    }}while((prog!=1)||(prog!=2)||(prog!=3));
+    }}while(prog != 's');
     return 0 ;
 }
