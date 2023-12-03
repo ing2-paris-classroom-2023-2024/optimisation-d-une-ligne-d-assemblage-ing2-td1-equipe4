@@ -68,7 +68,7 @@ void rayan(){
     }
     fclose(fichier);
     actuel=0;
-    fichier = fopen("precedance.txt","r");
+    fichier = fopen("precedences.txt","r");
     if (!fichier)
     {
         printf("Erreur de lecture fichier\n");
@@ -271,7 +271,7 @@ void rayan(){
 int main() {
     int prog=0;
     do{
-    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de precedence\n3.Precedence + Exclusion + Temps de cycle");
+    printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de precedence\n3.Precedence + Exclusion + Temps de cycle\n");
     scanf("%d", &prog);
     if (prog==1){
         exclusion();
