@@ -279,7 +279,7 @@ int main() {
     else if (prog==2){
         precedance_temps();
     }
-    else if (prof==3){
+    else if (prog==3){
         rayan();
     }}while((prog!=1)||(prog!=2)||(prog!=3));
     return 0 ;
