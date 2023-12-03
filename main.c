@@ -272,10 +272,10 @@ int main() {
     printf("Quel programme souhaitez-vous lancer ?\n1. Programme d'exclusion simple\n2.Programme de précédence\n3.Precedence+exclusion+Temps de cycle");
     scanf("%d", &prog);
     if (prog==1){
-        //programme numéro 1
+        exclusion();
     }
     else if (prog==2){
-        //programme numéro 2
+        precedance_temps();
     }
     else {
         rayan()
