@@ -35,3 +35,5 @@ typedef struct Graphe{
     pSommet* pSommet;
     pstation* pstation;
 } graphe;
+
+void exclusion();
