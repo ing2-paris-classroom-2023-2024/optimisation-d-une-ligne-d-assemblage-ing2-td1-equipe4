@@ -258,11 +258,11 @@ void rayan(){
     printf("\nl'operation a marccher avec succes il faut %d machine pour cette usine tel que on a :\n",nummf);
 
     while (tabm[nmachine].vide==1){
-        printf("machine N %d :\n possede les %d sommets suivant :\n",nmachine,tabm[nmachine].nbsommets);
+        printf("machine N %d :\n possede les %d sommets suivants :\n",nmachine,tabm[nmachine].nbsommets);
         for (int i = 0; i < tabm[nmachine].nbsommets; ++i) {
             printf("sommets : %d  \n",tabm[nmachine].sommets[i].nom);
         }
-        printf("temp total sur temp max de la machine : %f sur %f \n",tabm[nmachine].temps,tempsmax);
+        printf("temps total sur temp max de la machine : %f sur %f \n",tabm[nmachine].temps,tempsmax);
         nmachine+=1;
     }
 
@@ -279,8 +279,8 @@ int main() {
     else if (prog==2){
         precedance_temps();
     }
-    else {
-        rayan()
+    else if (prof==3){
+        rayan();
     }}while((prog!=1)||(prog!=2)||(prog!=3));
     return 0 ;
 }
